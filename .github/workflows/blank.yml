@@ -13,9 +13,8 @@ on:
       - master
 
     tags:
-      - v1.*
-    tags-ignore:
-      - v1*
+      - v1.1
+    
 
 jobs:
   mi-ci-part:
