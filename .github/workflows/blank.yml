@@ -9,11 +9,9 @@ env:
 
 on:
   push:
-    branches:
-      - master
+  
     tags:
       - v1.*
-      - !v1*
 
 jobs:
   mi-ci-part:
