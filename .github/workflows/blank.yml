@@ -7,15 +7,17 @@ env:
   
 
 
+
 on:
   push:
-  
     tags:
-      - v1.*
+    - '*'
+    
 
 jobs:
   mi-ci-part:
     runs-on: [ubuntu-18.04]
+    
     steps:
       - name: Git clone my repo
         uses: actions/checkout@v1
