@@ -12,14 +12,8 @@ jobs:
         uses: actions/checkout@v1
       
       - name: Docker Login
-        uses: Azure/docker-login@v1
-        with:
-          # Container registry username
-          username: ${{ secrets.DOCKER_USERNAME }}
-          # Container registry password
-          password: ${{ secrets.DOCKER_PASSWORD }} 
-          # Container registry server url
-          # login-server: 
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+     
         
       - name: Build and push
         run: |
