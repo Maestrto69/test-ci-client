@@ -1,31 +1,28 @@
-name: CI-CDd
-env:
-  EB_PACAGE_S3_BACKET_NAME: "maestrto69"
-  EB_APLICATION_NAME      : "My-OMV"
-  EB_ENVIRONMENT_NAME     : "MyOmv-env"
-  AWS_REGION_NAME         : "us-east-2"
-  
+name: CI
 
+on: [push]
 
-
-on:
-  push:
-    branches:
-    - master
-    
 jobs:
-  mi-ci-part:
-    runs-on: [ubuntu-18.04]
+  build:
+
+    runs-on: ubuntu-latest
     steps:
+
       - name: Git clone my repo
         uses: actions/checkout@v1
-        
-      - name: Configure 
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Docker Login
+        uses: Azure/docker-login@v1
+        with:
+          # Container registry username
+          username: ${{ secrets.DOCKER_USERNAME }}
+          # Container registry password
+          password: ${{ secrets.DOCKER_PASSWORD }} 
+          # Container registry server url
+          # login-server: 
         
       - name: Build and push
         run: |
-          docker build -t test-ci-client .
-          
-          docker tag test-ci-client:latest omegalab/test-ci-client:latest
-          docker push omegalab/test-ci-client:latest
+          docker build -t app2 .
+          docker tag app2:latest omegalab/test-ci-server:latest
+          docker push omegalab/test-ci-server:latest
