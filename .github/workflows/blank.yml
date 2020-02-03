@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v1
     
       - name: Login
-        uses: Maestrto69/test-ci0client@master
+        uses: Maestrto69/test-ci-client@master
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}  
