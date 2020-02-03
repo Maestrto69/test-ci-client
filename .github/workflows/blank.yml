@@ -10,8 +10,8 @@ env:
 
 on:
   push:
-    tags:
-    - '*'
+    branches:
+    - master
     
 
 jobs:
@@ -22,16 +22,10 @@ jobs:
       - name: Git clone my repo
         uses: actions/checkout@v1
         
-      - name: Configure my AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id     : ${{ secrets.MY_AWS_ACCESS_KEY }}
-          aws-secret-access-key : ${{ secrets.MY_AWS_SECRET_KEY }}
-          aws-region        : ${{ env.AWS_REGION_NAME }}
         
       - name: Build and push
         run: |
-          docker build -t app1 .
-          $(aws ecr get-login --no-include-email --region us-east-2)
-          docker tag app1:latest 951264400542.dkr.ecr.us-east-2.amazonaws.com/app1:latest
-          docker push 951264400542.dkr.ecr.us-east-2.amazonaws.com/app1:latest
+          docker build -t 
+          docker push omegalab/test-ci-client:latest
+
+       
