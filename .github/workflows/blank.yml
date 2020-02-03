@@ -22,7 +22,7 @@ jobs:
       - name: connect
         uses: Maestrto69/test-ci-client@master
         with:
-          image: docker-hub-repo/image-name
+        
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
