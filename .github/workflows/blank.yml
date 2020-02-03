@@ -22,15 +22,20 @@ jobs:
       - name: Git clone my repo
         uses: actions/checkout@v1
     
-      - name: Login
-        uses: Maestrto69/test-ci-client@master
+      - uses: Maestrto69/test-ci-client@v2
         with:
+          image: test-ci-client/image
+          tag: latest
+          
+          
+    
+          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}  
-        
-      - name: Build and push
-        run: |
-          docker build -t omegalab .
-          docker push omegalab/test-ci-client:latest
-
-       
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          
+          
+          
+          
+          
+          
+          
