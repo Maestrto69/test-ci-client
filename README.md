@@ -1,5 +1,5 @@
 # client
-#v1.6_2
+#v1.6.1
 ## Project setup
 ```
 npm install
