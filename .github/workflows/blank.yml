@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Configure 
-        run: docker login --username=${{secrets.DOCKER_USERNAME}} --email=Maestrto69@gmail.com
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build and push
         run: |
