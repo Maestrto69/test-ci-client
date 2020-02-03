@@ -25,7 +25,7 @@ jobs:
         
       - name: Build and push
         run: |
-          docker build -t 
+          docker build -t app1 .
           docker push omegalab/test-ci-client:latest
 
        
