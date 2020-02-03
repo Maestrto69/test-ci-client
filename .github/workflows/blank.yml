@@ -31,7 +31,7 @@ jobs:
         
       - name: Build and push
         run: |
-          docker build -t app2 .
+          docker build -t app1 .
           $(aws ecr get-login --no-include-email --region us-east-2)
-          docker tag app2:latest 951264400542.dkr.ecr.us-east-2.amazonaws.com/app2:latest
-          docker push 951264400542.dkr.ecr.us-east-2.amazonaws.com/app2:latest
+          docker tag app1:latest 951264400542.dkr.ecr.us-east-2.amazonaws.com/app1:latest
+          docker push 951264400542.dkr.ecr.us-east-2.amazonaws.com/app1:latest
