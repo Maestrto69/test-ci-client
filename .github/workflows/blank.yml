@@ -1,7 +1,12 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    tags: 
+      - 'v*'
+      
 
+ 
 jobs:
   build:
 
@@ -10,6 +15,11 @@ jobs:
 
       - name: Git clone my repo
         uses: actions/checkout@v1
+        
+      - name: Get the version
+        id: get_version
+        run: | 
+          echo ::set-output name=VERSION::${GITHUB_REF##*/}
       
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
